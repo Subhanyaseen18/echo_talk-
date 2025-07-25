@@ -4,9 +4,9 @@ import { useConversation } from "@elevenlabs/react";
 import { Mic } from "lucide-react-native";
 import { useCallback } from "react";
 import { Pressable, StyleSheet, View } from "react-native";
-
 import tools from "../utils/tools";
 
+// Request microphone permission (web context)
 async function requestMicrophonePermission() {
   try {
     await navigator.mediaDevices.getUserMedia({ audio: true });
@@ -23,33 +23,35 @@ export default function ConvAiDOMComponent({
   get_battery_level,
   change_brightness,
   flash_screen,
+  onMessage, // ✅ add this prop
 }: {
   dom?: import("expo/dom").DOMProps;
   platform: string;
   get_battery_level: typeof tools.get_battery_level;
   change_brightness: typeof tools.change_brightness;
   flash_screen: typeof tools.flash_screen;
+  onMessage?: (msg: { message: string; source: string }) => void; // ✅ type
 }) {
   const conversation = useConversation({
     onConnect: () => console.log("Connected"),
     onDisconnect: () => console.log("Disconnected"),
     onMessage: (message) => {
       console.log(message);
+      onMessage?.(message); // ✅ forward to App for display
     },
     onError: (error) => console.error("Error:", error),
   });
+
   const startConversation = useCallback(async () => {
     try {
-      // Request microphone permission
       const hasPermission = await requestMicrophonePermission();
       if (!hasPermission) {
-        alert("No permission");
+        alert("Microphone permission not granted.");
         return;
       }
 
-      // Start the conversation with your agent
       await conversation.startSession({
-        agentId: "agent_2601k0vrmzzqfs5b060gjqdc4qp2", // Replace with your agent ID
+        agentId: "agent_2601k0vrmzzqfs5b060gjqdc4qp2", // replace with your actual agent ID
         dynamicVariables: {
           platform,
         },

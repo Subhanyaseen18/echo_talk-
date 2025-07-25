@@ -1,4 +1,4 @@
-package com.vanessacushing.echo_talk
+package com.echo_talk
 import expo.modules.splashscreen.SplashScreenManager
 
 import android.os.Build

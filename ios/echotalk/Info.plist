@@ -28,7 +28,7 @@
         <key>CFBundleURLSchemes</key>
         <array>
           <string>echotalk</string>
-          <string>com.anonymous.elevenlabs-conversational-ai-expo-react-native</string>
+          <string>com.echotalk</string>
         </array>
       </dict>
       <dict>

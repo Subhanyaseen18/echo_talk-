@@ -14,7 +14,7 @@
       },
       "supportsTablet": true,
 
-      "bundleIdentifier": "com.anonymous.elevenlabs-conversational-ai-expo-react-native"
+      "bundleIdentifier": "com.echotalk"
     },
     "android": {
       "permissions": [
@@ -27,9 +27,9 @@
       },
 
       "edgeToEdgeEnabled": true,
-      "package": "com.vanessacushing.echo_talk",
+      "package": "com.echotalk",
       "supportsTablet": true,
-      "bundleIdentifier": "com.anonymous.elevenlabs-conversational-ai-expo-react-native"
+      "bundleIdentifier": "com.echotalk"
     },
     "web": {
       "bundler": "metro",

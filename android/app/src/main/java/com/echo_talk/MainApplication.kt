@@ -1,4 +1,4 @@
-package com.vanessacushing.echo_talk
+package com.echo_talk
 
 import android.app.Application
 import android.content.res.Configuration
