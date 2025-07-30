@@ -101,8 +101,8 @@ export default function ConvAiDOMComponent({
 
 const styles = StyleSheet.create({
   callButton: {
-    width: 125,
-    height: 125,
+    width: 120,
+    height: 120,
     borderRadius: 60,
     backgroundColor: "rgba(255, 255, 255, 0.1)",
     alignItems: "center",
